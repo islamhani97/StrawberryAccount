@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/first_group">
+        <item
+            android:id="@+id/homeFragment"
+            android:title="@string/home"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/tradersListFragment"
+            android:title="@string/traders_list"
+            app:showAsAction="never" />
+
+    </group>
+
+    <group
+        android:id="@+id/second_group"
+       >
+
+        <item
+            android:id="@+id/aboutFragment"
+            android:title="@string/about"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/settingsFragment"
+            android:title="@string/settings"
+            app:showAsAction="never" />
+    </group>
+
+
+    <!--    aboutFragment-->
+
+</menu>

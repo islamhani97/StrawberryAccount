@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.traderinfo.TraderInfoFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/fragment_trader_info_trader_name"
+                style="@style/LabeledTextViewStyle"
+                android:layout_width="wrap_content"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_summary"
+                style="@style/LabeledTextViewStyle"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/summary_trader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_trader_info_trader_name" />
+
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_amount"
+                style="@style/LabeledTextViewStyle"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_trader_info_summary" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_amount_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_amount"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_trader_info_total_amount"
+                app:layout_constraintStart_toStartOf="@+id/fragment_trader_info_total_amount"
+                app:layout_constraintTop_toTopOf="@+id/fragment_trader_info_total_amount"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_profit"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_trader_info_total_amount" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_profit_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_profit"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_trader_info_total_profit"
+                app:layout_constraintStart_toStartOf="@+id/fragment_trader_info_total_profit"
+                app:layout_constraintTop_toTopOf="@+id/fragment_trader_info_total_profit"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_paid"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_trader_info_total_profit" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_paid_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_paid"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_trader_info_total_paid"
+                app:layout_constraintStart_toStartOf="@+id/fragment_trader_info_total_paid"
+                app:layout_constraintTop_toTopOf="@+id/fragment_trader_info_total_paid"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_owed"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_trader_info_total_paid" />
+
+            <TextView
+                android:id="@+id/fragment_trader_info_total_owed_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_owed"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_trader_info_total_owed"
+                app:layout_constraintStart_toStartOf="@+id/fragment_trader_info_total_owed"
+                app:layout_constraintTop_toTopOf="@+id/fragment_trader_info_total_owed"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <include
+                android:id="@+id/fragment_trader_info_floating_actions"
+                layout="@layout/floating_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">حساب الفراولة</string>
+
+    <!--Labels-->
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="username">اسم المستخدم</string>
+
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="traders_list">قائمة التجار</string>
+    <string name="sales">المبيعات</string>
+    <string name="financial">المالية</string>
+    <string name="trader_name">اسم التاجر</string>
+    <string name="trader_info">بيانات التاجر</string>
+    <string name="about">عن التطبيق</string>
+    <string name="settings">الاعدادات</string>
+    <string name="amount">الكمية</string>
+    <string name="price">السعر</string>
+    <string name="value">القيمة</string>
+    <string name="profit">الربح</string>
+    <string name="date">التاريخ</string>
+    <string name="total_amount">الكمية الاجمالية</string>
+    <string name="total_profit">اجمالي الربح</string>
+    <string name="total_paid">المدفوع</string>
+    <string name="total_owed">المستحق</string>
+    <string name="language_ar">عربي</string>
+    <string name="language_en">English</string>
+    <string name="language">اللغة</string>
+    <string name="search">بحث</string>
+    <string name="summary_trader">*** ملخص المعاملات ***</string>
+    <string name="summary_all_transactions">*** ملخص كل المعاملات ***</string>
+    <string name="empty_traders_list">قائمة التجار فارغة</string>
+    <string name="empty_sales_list">قائمة المبيعات فارغة</string>
+    <string name="empty_financial_list">قائمة المعاملات المالية فارغة</string>
+    <string name="no_search_result">لا يوجد نتائج للبحث</string>
+    <string name="about_app">تم تطوير هذا التطبيق ، لمساعدتك في حساب مبيعات الفراولة والاحتفاظ بها محليًا في جهازك ، لذا اهتم بهذا التطبيق ، لأنه بمجرد إزالته أو مسح بياناته ، ستتم إزالة بيانات معاملات المبيعات أيضًا.</string>
+    <string name="dev_by">تم الطوير بواسطة</string>
+    <string name="mail">البريد الالكتروني</string>
+    <string name="importance_hint"><u>مهم جدا</u></string>
+
+    <string name="developer_name">اسلام هاني</string>
+    <string name="developer_phone"><u>01061443401</u></string>
+    <string name="developer_mail"><u>dev.islam97@gmail.com</u></string>
+
+    <!--Actions Names-->
+    <string name="next">التالي</string>
+    <string name="submit">تاكيد</string>
+    <string name="save">حفظ</string>
+    <string name="ok">حسنا</string>
+    <string name="cancel">الغاء</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="update">تحديث</string>
+    <string name="go">اذهب</string>
+    <string name="retry">اعادة المحاولة</string>
+
+    <!--Errors-->
+    <string name="error_field_required">البيان مطلوب</string>
+    <string name="error_phone_number_required">ادخل رقم الهاتف</string>
+    <string name="error_username_required">ادخل اسم المستخدم</string>
+    <string name="error_trader_name_required">ادخل اسم التاجر</string>
+    <string name="error_name_length">يجب الا يقل الاسم عن ثلاثه احرف</string>
+    <string name="error_logic_number">ادخل رقم صحيح</string>
+    <string name="error_data">خطا في البيانات</string>
+    <string name="error_select_date">اختار التاريخ</string>
+    <string name="error_select_search_type">اختر نوع البحث</string>
+    <string name="error_no_internet">لا يتوفر اتصال بالانترنت</string>
+    <string name="error_network_connection">خطا في الاتصال بالشبكة</string>
+    <string name="error_unknown">خطا غير معروف</string>
+    <string name="error_server">خطا في الخادم</string>
+    <string name="error_phone_number">رقم الهاتف غير صحيح</string>
+    <string name="error_verification_code">رمز التاكيد غير صحيح او منتهي الصلاحية</string>
+
+    <string name="error_add_trader">خطا في اضافة التاجر</string>
+    <string name="error_update_trader">خطا في تحديث التاجر</string>
+    <string name="error_delete_trader">خطا في حذف التاجر</string>
+
+    <string name="error_add">خطا في الاضافه</string>
+    <string name="error_update">خطا في التحديث</string>
+    <string name="error_delete">خطا في الحذف</string>
+
+    <!--Messages-->
+    <string name="message_delete">هل انت متاكد من عمليه الحذف ؟</string>
+    <string name="message_choose_language">اختر اللغة:</string>
+    <string name="message_new_version">يتوفر اصدار احدث من هذا التطبيق</string>
+    <string name="message_check_last_version">الرجاء التاكد من تثبيت اخر اصدار من هذا التطبيق</string>
+
+    <!--suffixes-->
+    <string name="box">كرتونة</string>
+    <string name="le">جنيها</string>
+
+</resources>

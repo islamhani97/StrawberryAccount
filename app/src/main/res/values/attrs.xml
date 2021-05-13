@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VerificationCodeEditText">
+        <attr name="textColor" format="color" />
+        <attr name="hintColor" format="color" />
+        <attr name="maxLength" format="integer" />
+        <attr name="digitWidth" format="dimension" />
+        <attr name="digitHeight" format="dimension" />
+        <attr name="digitPadding" format="dimension" />
+        <attr name="digitStyle" format="enum">
+            <enum name="drawable" value="0" />
+            <enum name="rect" value="1" />
+            <enum name="line" value="2" />
+        </attr>
+        <attr name="digitDrawable" format="integer" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
+        <attr name="hintSymbol" format="string" />
+        <attr name="digitCompleteStrokeColor" format="color" />
+
+    </declare-styleable>
+</resources>

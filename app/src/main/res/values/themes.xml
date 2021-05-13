@@ -1,0 +1,63 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.StrawberryAccount" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!--Primary-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!--Secondary-->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!--Surface-->
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <!--Background-->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <!--Error-->
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
+        <item name="fontFamily">@font/cairo_semi_bold</item>
+
+    </style>
+
+
+    <style name="DialogTheme"></style>
+
+
+    <style name="LabeledTextViewStyle">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">16dp</item>
+
+        <item name="android:background">@drawable/shape_labeled_text_view</item>
+
+
+    </style>
+
+    <style name="LabeledTextViewLabelStyle">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+
+</resources>

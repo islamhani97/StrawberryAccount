@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="aPackage"
+            type="com.islam.strawberryaccount.pojo.Package" />
+
+        <variable
+            name="language"
+            type="String" />
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/dialog_show_package_amount"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.suffixText(aPackage.amount.toString(),@string/box)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dialog_show_package_amount_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/amount"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_package_amount"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_package_amount"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_package_amount"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/dialog_show_package_price"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.suffixText(aPackage.price.toString(),@string/le)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_package_amount" />
+
+            <TextView
+                android:id="@+id/dialog_show_package_price_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/price"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_package_price"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_package_price"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_package_price"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/dialog_show_package_profit"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.suffixText(String.valueOf(aPackage.price*aPackage.amount),@string/le)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_package_price" />
+
+            <TextView
+                android:id="@+id/dialog_show_package_profit_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/profit"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_package_profit"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_package_profit"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_package_profit"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/dialog_show_package_date"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.showDate(aPackage.date,language)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_package_profit" />
+
+            <TextView
+                android:id="@+id/dialog_show_package_date_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/date"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_package_date"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_package_date"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_package_date"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/dialog_show_package_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/ok"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_package_date" />
+
+
+            <include
+                android:id="@+id/dialog_show_package_floating_actions"
+                layout="@layout/floating_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.settings.SettingsFragment">
+
+
+        <!--        <RadioGroup-->
+        <!--            android:id="@+id/fragment_settings_language_group"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:paddingTop="12dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--            <RadioButton-->
+        <!--                android:id="@+id/fragment_settings_language_en"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="@string/language_en" />-->
+
+        <!--            <RadioButton-->
+        <!--                android:id="@+id/fragment_settings_language_ar"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="@string/language_ar" />-->
+        <!--        </RadioGroup>-->
+
+
+        <TextView
+            android:id="@+id/fragment_settings_language"
+            style="@style/LabeledTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <ImageView
+            android:id="@+id/fragment_settings_edit_language"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_language"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_language"
+            app:layout_constraintTop_toTopOf="@+id/fragment_settings_language" />
+
+
+        <TextView
+            android:id="@+id/fragment_settings_language_label"
+            style="@style/LabeledTextViewLabelStyle"
+            android:text="@string/language"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_settings_language"
+            app:layout_constraintStart_toStartOf="@+id/fragment_settings_language"
+            app:layout_constraintTop_toTopOf="@+id/fragment_settings_language" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

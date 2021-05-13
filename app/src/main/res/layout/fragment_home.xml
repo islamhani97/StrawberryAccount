@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/fragment_home_summary"
+                style="@style/LabeledTextViewStyle"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/summary_all_transactions"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_amount"
+                style="@style/LabeledTextViewStyle"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_summary" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_amount_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_amount"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_home_total_amount"
+                app:layout_constraintStart_toStartOf="@+id/fragment_home_total_amount"
+                app:layout_constraintTop_toTopOf="@+id/fragment_home_total_amount"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/fragment_home_total_profit"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_total_amount" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_profit_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_profit"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_home_total_profit"
+                app:layout_constraintStart_toStartOf="@+id/fragment_home_total_profit"
+                app:layout_constraintTop_toTopOf="@+id/fragment_home_total_profit"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_paid"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_total_profit" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_paid_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_paid"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_home_total_paid"
+                app:layout_constraintStart_toStartOf="@+id/fragment_home_total_paid"
+                app:layout_constraintTop_toTopOf="@+id/fragment_home_total_paid"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/fragment_home_total_owed"
+                style="@style/LabeledTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_total_paid" />
+
+            <TextView
+                android:id="@+id/fragment_home_total_owed_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/total_owed"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_home_total_owed"
+                app:layout_constraintStart_toStartOf="@+id/fragment_home_total_owed"
+                app:layout_constraintTop_toTopOf="@+id/fragment_home_total_owed"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</layout>

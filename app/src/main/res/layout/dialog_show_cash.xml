@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cash"
+            type="com.islam.strawberryaccount.pojo.Cash" />
+
+        <variable
+            name="language"
+            type="String" />
+
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/dialog_show_cash_vale"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.suffixText(cash.value.toString(),@string/le)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dialog_show_cash_vale_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/value"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_cash_vale"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_cash_vale"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_cash_vale"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/dialog_show_cash_date"
+                style="@style/LabeledTextViewStyle"
+                android:text="@{com.islam.strawberryaccount.utils.Constants.showDate(cash.date,language)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_cash_vale" />
+
+            <TextView
+                android:id="@+id/dialog_show_cash_date_label"
+                style="@style/LabeledTextViewLabelStyle"
+                android:text="@string/date"
+                app:layout_constraintBottom_toTopOf="@+id/dialog_show_cash_date"
+                app:layout_constraintStart_toStartOf="@+id/dialog_show_cash_date"
+                app:layout_constraintTop_toTopOf="@+id/dialog_show_cash_date"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/dialog_show_cash_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/ok"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_show_cash_date" />
+
+
+
+
+            <include
+                android:id="@+id/dialog_show_cash_floating_actions"
+                layout="@layout/floating_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

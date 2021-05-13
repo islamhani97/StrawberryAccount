@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_in_nav_graph"
+    app:startDestination="@id/phoneNumberFragment">
+
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.islam.strawberryaccount.ui.fragments.PhoneNumberFragment"
+        android:label="PhoneNumberFragment"
+        tools:layout="@layout/fragment_phone_number" />
+    <fragment
+        android:id="@+id/authCodeFragment"
+        android:name="com.islam.strawberryaccount.ui.fragments.AuthCodeFragment"
+        android:label="AuthCodeFragment"
+        tools:layout="@layout/fragment_auth_code" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.islam.strawberryaccount.ui.fragments.UserInfoFragment"
+        android:label="UserInfoFragment"
+        tools:layout="@layout/fragment_user_info">
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_authCodeFragment"
+        app:destination="@id/authCodeFragment"
+        app:enterAnim="@anim/page_slide_in_end"
+        app:exitAnim="@anim/page_slide_out_start"
+        app:popEnterAnim="@anim/page_slide_in_start"
+        app:popExitAnim="@anim/page_slide_out_end" />
+    <action
+        android:id="@+id/action_global_userInfoFragment"
+        app:destination="@id/userInfoFragment"
+        app:enterAnim="@anim/page_slide_in_end"
+        app:exitAnim="@anim/page_slide_out_start"
+        app:popEnterAnim="@anim/page_slide_in_start"
+        app:popExitAnim="@anim/page_slide_out_end" />
+</navigation>

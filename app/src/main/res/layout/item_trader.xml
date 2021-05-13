@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="trader"
+            type="com.islam.strawberryaccount.pojo.Trader" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/ripple_effect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorSurface"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="24dp">
+
+        <TextView
+            android:id="@+id/item_trader_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:text="@{trader.name}"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

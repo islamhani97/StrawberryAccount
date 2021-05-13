@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781366501538",
+    "project_id": "strawberry-account-e9dfa",
+    "storage_bucket": "strawberry-account-e9dfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781366501538:android:9695be7154f9e8019bf7fb",
+        "android_client_info": {
+          "package_name": "com.islam.strawberryaccount"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781366501538-6ucgpn07vglkb360un9n4h47a57nc1e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCaxUDtRmNxrOuqVoq9p0iltUz3H3x2A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781366501538-6ucgpn07vglkb360un9n4h47a57nc1e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
