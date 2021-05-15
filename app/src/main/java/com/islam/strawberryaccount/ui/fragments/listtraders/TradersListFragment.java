@@ -31,7 +31,9 @@ import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class TradersListFragment extends Fragment implements TradersAdapterCallback {
 
     private FragmentTradersListBinding binding;

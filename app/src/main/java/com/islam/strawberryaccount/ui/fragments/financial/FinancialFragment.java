@@ -1,7 +1,10 @@
 package com.islam.strawberryaccount.ui.fragments.financial;
 
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,27 +13,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.adapters.CashesAdapter;
 import com.islam.strawberryaccount.callbacks.CashesAdapterCallback;
 import com.islam.strawberryaccount.databinding.FragmentFinancialBinding;
 import com.islam.strawberryaccount.pojo.Cash;
-import com.islam.strawberryaccount.pojo.Trader;
 import com.islam.strawberryaccount.ui.dialogs.CashDialog;
 import com.islam.strawberryaccount.ui.dialogs.ShowCashDialog;
-import com.islam.strawberryaccount.ui.dialogs.TraderDialog;
 import com.islam.strawberryaccount.utils.Constants;
-import com.islam.strawberryaccount.utils.DateConverter;
 
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class FinancialFragment extends Fragment implements CashesAdapterCallback {
 
     private FragmentFinancialBinding binding;
@@ -46,7 +43,7 @@ public class FinancialFragment extends Fragment implements CashesAdapterCallback
         traderId = getArguments().getLong(Constants.KEY_TRADER_ID);
         financialViewModel = new ViewModelProvider(this).get(FinancialViewModel.class);
         language = getResources().getConfiguration().locale.getLanguage();
-        cashesAdapter = new CashesAdapter(this,language);
+        cashesAdapter = new CashesAdapter(this, language);
         financialViewModel.getAllCashesForTrader(traderId);
 
     }
@@ -71,7 +68,7 @@ public class FinancialFragment extends Fragment implements CashesAdapterCallback
             @Override
             public void onClick(View v) {
 
-                new CashDialog(getContext(), new Cash(), getString(R.string.save),language) {
+                new CashDialog(getContext(), new Cash(), getString(R.string.save), language) {
                     @Override
                     public void onSave(Cash cash) {
                         cash.setTraderId(traderId);
@@ -91,10 +88,9 @@ public class FinancialFragment extends Fragment implements CashesAdapterCallback
         financialViewModel.getCashesLiveData().observe(getViewLifecycleOwner(), new Observer<List<Cash>>() {
             @Override
             public void onChanged(List<Cash> cashList) {
-                if(cashList.size() < 1 ){
+                if (cashList.size() < 1) {
                     binding.fragmentFinancialEmptyLabel.setVisibility(View.VISIBLE);
-                }
-                else{
+                } else {
                     binding.fragmentFinancialEmptyLabel.setVisibility(View.GONE);
                 }
                 cashesAdapter.updateDataSet(cashList);
@@ -137,12 +133,12 @@ public class FinancialFragment extends Fragment implements CashesAdapterCallback
 
     @Override
     public void onCashClicked(Cash cash) {
-        new ShowCashDialog(getContext(), cash,language) {
+        new ShowCashDialog(getContext(), cash, language) {
             @Override
             public void onEdit(Cash cash) {
                 updateCash = cash.getInstance();
 
-                new CashDialog(getContext(), updateCash, getString(R.string.update),language) {
+                new CashDialog(getContext(), updateCash, getString(R.string.update), language) {
                     @Override
                     public void onSave(Cash cash) {
                         financialViewModel.updateCash(cash);

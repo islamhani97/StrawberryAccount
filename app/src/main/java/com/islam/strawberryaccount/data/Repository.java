@@ -22,22 +22,27 @@ import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-
+@Singleton
 public class Repository {
 
     private Firebase firebase;
     private AppStorage appStorage;
     private Dao dao;
 
-    public Repository(Context context) {
-        firebase = new Firebase();
-        appStorage = new AppStorage(context);
-        dao = Database.getInstance(context).dao();
+
+    @Inject
+    public Repository(Firebase firebase, AppStorage appStorage, Dao dao) {
+        this.firebase = firebase;
+        this.appStorage = appStorage;
+        this.dao = dao;
     }
 
     // App Storage
@@ -66,16 +71,20 @@ public class Repository {
     public void sendVerificationCode(String phoneNumber, Activity activity, PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks) {
         firebase.sendVerificationCode(phoneNumber, activity, callbacks);
     }
+
     public Task<AuthResult> signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         return firebase.signInWithPhoneAuthCredential(credential);
     }
+
     public Task<Void> postUser(User user) {
         return firebase.postUser(user);
     }
+
     public Task<DocumentSnapshot> getUser() {
         return firebase.getUser();
     }
-    public Task<DocumentSnapshot> getLastVersion(){
+
+    public Task<DocumentSnapshot> getLastVersion() {
         return firebase.getLastVersion();
     }
 

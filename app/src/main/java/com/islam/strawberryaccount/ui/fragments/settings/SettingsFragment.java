@@ -30,6 +30,9 @@ import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.Locale;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SettingsFragment extends Fragment {
 
     private FragmentSettingsBinding binding;

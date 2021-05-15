@@ -34,6 +34,9 @@ import com.islam.strawberryaccount.utils.DepthPageTransformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class TraderFragment extends Fragment {
 
     private FragmentTraderBinding binding;

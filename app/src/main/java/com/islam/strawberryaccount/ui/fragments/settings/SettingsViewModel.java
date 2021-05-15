@@ -1,27 +1,32 @@
 package com.islam.strawberryaccount.ui.fragments.settings;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.islam.strawberryaccount.data.Repository;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 
-public class SettingsViewModel extends AndroidViewModel {
+import javax.inject.Inject;
 
-    private MutableLiveData<String> languageLiveData;
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
+
+@HiltViewModel
+public class SettingsViewModel extends BaseViewModel {
+
+    private final MutableLiveData<String> languageLiveData;
 
 
-    private Repository repository;
-
-    public SettingsViewModel(@NonNull Application application) {
-        super(application);
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public SettingsViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context,repository);
 
         languageLiveData = new MutableLiveData<>();
     }
-
 
     public void getLanguage() {
 

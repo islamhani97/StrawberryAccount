@@ -1,19 +1,23 @@
 package com.islam.strawberryaccount.data;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.islam.strawberryaccount.utils.Constants;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class AppStorage {
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
 
-    public AppStorage(Context context) {
-        sharedPreferences = context.getSharedPreferences(Constants.SH_PREFS_NAME, Context.MODE_PRIVATE);
-        gson = new Gson();
+    @Inject
+    public AppStorage(SharedPreferences sharedPreferences, Gson gson) {
+        this.sharedPreferences = sharedPreferences;
+        this.gson = gson;
     }
 
 //    public void setUser(User user) {

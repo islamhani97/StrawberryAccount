@@ -1,10 +1,7 @@
 package com.islam.strawberryaccount.ui.fragments.traderinfo;
 
-import android.app.Application;
-import android.widget.Toast;
+import android.content.Context;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -13,33 +10,37 @@ import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Cash;
 import com.islam.strawberryaccount.pojo.Package;
 import com.islam.strawberryaccount.pojo.Trader;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class TraderInfoViewModel extends AndroidViewModel {
+@HiltViewModel
+public class TraderInfoViewModel extends BaseViewModel {
 
-    private MutableLiveData<Trader> traderLiveData;
-    private SingleLiveData<Void> updateTraderLiveData;
-    private SingleLiveData<Void> deleteTraderLiveData;
-    private MutableLiveData<List<Cash>> cashesLiveData;
-    private MutableLiveData<List<Package>> packagesLiveData;
-    private SingleLiveData<String> errorLiveData;
+    private final MutableLiveData<Trader> traderLiveData;
+    private final SingleLiveData<Void> updateTraderLiveData;
+    private final SingleLiveData<Void> deleteTraderLiveData;
+    private final MutableLiveData<List<Cash>> cashesLiveData;
+    private final MutableLiveData<List<Package>> packagesLiveData;
+    private final SingleLiveData<String> errorLiveData;
 
-    private Repository repository;
-    private Application application;
     private boolean isTraderDateRequested, isPackagesDataRequested, isCashesDataRequested;
 
-    public TraderInfoViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public TraderInfoViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
+
         isTraderDateRequested = isPackagesDataRequested = isCashesDataRequested = false;
 
         traderLiveData = new MutableLiveData<>();
@@ -72,7 +73,7 @@ public class TraderInfoViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -102,7 +103,7 @@ public class TraderInfoViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -133,7 +134,7 @@ public class TraderInfoViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -163,7 +164,7 @@ public class TraderInfoViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_update_trader));
+                        errorLiveData.setValue(context.getString(R.string.error_update_trader));
                     }
                 });
 
@@ -188,7 +189,7 @@ public class TraderInfoViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_delete_trader));
+                        errorLiveData.setValue(context.getString(R.string.error_delete_trader));
                     }
                 });
 

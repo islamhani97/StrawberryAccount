@@ -1,6 +1,7 @@
 package com.islam.strawberryaccount.ui.fragments.listtraders;
 
 import android.app.Application;
+import android.content.Context;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,15 @@ import androidx.lifecycle.MutableLiveData;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Trader;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -23,20 +29,19 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class TradersListViewModel extends AndroidViewModel {
+@HiltViewModel
+public class TradersListViewModel extends BaseViewModel {
 
-    private MutableLiveData<List<Trader>> tradersListLiveData;
-    private SingleLiveData<Void> insertTraderLiveData;
-    private SingleLiveData<String> errorLiveData;
+    private final MutableLiveData<List<Trader>> tradersListLiveData;
+    private final SingleLiveData<Void> insertTraderLiveData;
+    private final SingleLiveData<String> errorLiveData;
 
-    private Repository repository;
-    private Application application;
     private boolean isTradersDataRequested;
 
-    public TradersListViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public TradersListViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
+
         isTradersDataRequested = false;
 
         tradersListLiveData = new MutableLiveData<>();
@@ -63,7 +68,7 @@ public class TradersListViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -90,7 +95,7 @@ public class TradersListViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_add_trader));
+                        errorLiveData.setValue(context.getString(R.string.error_add_trader));
                     }
                 });
     }

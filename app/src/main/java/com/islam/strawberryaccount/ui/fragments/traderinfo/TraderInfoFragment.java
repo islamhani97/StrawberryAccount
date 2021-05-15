@@ -30,6 +30,9 @@ import com.islam.strawberryaccount.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class TraderInfoFragment extends Fragment {
 
     private FragmentTraderInfoBinding binding;

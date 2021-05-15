@@ -36,7 +36,9 @@ import com.islam.strawberryaccount.utils.DateConverter;
 import java.util.List;
 import java.util.Locale;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SalesFragment extends Fragment implements PackagesAdapterCallback {
     private FragmentSalesBinding binding;
     private SalesViewModel salesViewModel;

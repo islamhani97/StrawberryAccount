@@ -39,6 +39,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SearchFragment extends Fragment implements PackagesAdapterCallback, CashesAdapterCallback {
 
     private FragmentSearchBinding binding;

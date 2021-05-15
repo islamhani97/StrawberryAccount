@@ -27,7 +27,9 @@ import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.Locale;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SplashActivity extends AppCompatActivity {
 
     private ActivitySplashBinding binding;

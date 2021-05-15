@@ -14,17 +14,21 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.islam.strawberryaccount.pojo.User;
 import com.islam.strawberryaccount.utils.Constants;
 
-
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class Firebase {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
 
-    public Firebase() {
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
+    @Inject
+    public Firebase(FirebaseAuth firebaseAuth, FirebaseFirestore firebaseFirestore) {
+        this.firebaseAuth = firebaseAuth;
+        this.firebaseFirestore = firebaseFirestore;
     }
 
 

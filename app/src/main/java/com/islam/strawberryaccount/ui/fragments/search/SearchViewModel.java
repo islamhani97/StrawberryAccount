@@ -1,6 +1,7 @@
 package com.islam.strawberryaccount.ui.fragments.search;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,40 +12,41 @@ import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Cash;
 import com.islam.strawberryaccount.pojo.Package;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SearchViewModel extends AndroidViewModel {
+@HiltViewModel
+public class SearchViewModel extends BaseViewModel {
 
-    private MutableLiveData<List<Package>> packagesLiveData;
-    private MutableLiveData<List<Cash>> cashesLiveData;
+    private final MutableLiveData<List<Package>> packagesLiveData;
+    private final MutableLiveData<List<Cash>> cashesLiveData;
 
-    private SingleLiveData<Void> updatePackageLiveData;
-    private SingleLiveData<Void> deletePackageLiveData;
-    private SingleLiveData<Void> updateCashLiveData;
-    private SingleLiveData<Void> deleteCashLiveData;
+    private final SingleLiveData<Void> updatePackageLiveData;
+    private final SingleLiveData<Void> deletePackageLiveData;
+    private final SingleLiveData<Void> updateCashLiveData;
+    private final SingleLiveData<Void> deleteCashLiveData;
 
-    private SingleLiveData<String> errorLiveData;
-
-    private Repository repository;
-    private Application application;
-
+    private final SingleLiveData<String> errorLiveData;
 
     private Long startSearchDate;
     private Long endSearchDate;
     private String searchType;
 
-    public SearchViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public SearchViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
 
         packagesLiveData = new MutableLiveData<>();
         cashesLiveData = new MutableLiveData<>();
@@ -57,7 +59,6 @@ public class SearchViewModel extends AndroidViewModel {
         errorLiveData = new SingleLiveData<>();
 
     }
-
 
 
     public void searchInPackagesForTrader(Long traderId) {
@@ -77,7 +78,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                        errorLiveData.setValue(context.getString(R.string.error_data));
                     }
                 });
 
@@ -101,7 +102,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                        errorLiveData.setValue(context.getString(R.string.error_data));
                     }
                 });
 
@@ -125,7 +126,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_update));
+                        errorLiveData.setValue(context.getString(R.string.error_update));
                     }
                 });
     }
@@ -147,7 +148,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_delete));
+                        errorLiveData.setValue(context.getString(R.string.error_delete));
                     }
                 });
     }
@@ -171,7 +172,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_update));
+                        errorLiveData.setValue(context.getString(R.string.error_update));
                     }
                 });
     }
@@ -194,7 +195,7 @@ public class SearchViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_delete));
+                        errorLiveData.setValue(context.getString(R.string.error_delete));
                     }
                 });
     }

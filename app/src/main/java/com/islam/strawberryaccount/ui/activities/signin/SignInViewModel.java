@@ -2,9 +2,9 @@ package com.islam.strawberryaccount.ui.activities.signin;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,40 +14,37 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.User;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.Constants;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
-import static com.google.firebase.FirebaseError.ERROR_INVALID_USER_TOKEN;
+import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 
-public class SignInViewModel extends AndroidViewModel {
+@HiltViewModel
+public class SignInViewModel extends BaseViewModel {
 
     // Live Data
-    private MutableLiveData<String> verificationIdLiveData;
-    private MutableLiveData<PhoneAuthCredential> credentialLiveData;
-    private MutableLiveData<Void> signInResultLiveData;
-    private MutableLiveData<Void> postUserResultLiveData;
-    private MutableLiveData<User> userLiveData;
-    private SingleLiveData<Integer> errorLiveData;
+    private final MutableLiveData<String> verificationIdLiveData;
+    private final MutableLiveData<PhoneAuthCredential> credentialLiveData;
+    private final MutableLiveData<Void> signInResultLiveData;
+    private final MutableLiveData<Void> postUserResultLiveData;
+    private final MutableLiveData<User> userLiveData;
+    private final SingleLiveData<Integer> errorLiveData;
 
     private boolean dialogShowingStatus;
 
-    private Repository repository;
-    private Application application;
-
-    public SignInViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public SignInViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
 
         verificationIdLiveData = new MutableLiveData<>();
         credentialLiveData = new MutableLiveData<>();
@@ -64,7 +61,7 @@ public class SignInViewModel extends AndroidViewModel {
     public void sendVerificationCode(String phoneNumber, Activity activity) {
 
 
-        if (Constants.isInternetConnected(application.getApplicationContext())) {
+        if (Constants.isInternetConnected(context)) {
 
             repository.sendVerificationCode(phoneNumber, activity,
                     new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -105,7 +102,7 @@ public class SignInViewModel extends AndroidViewModel {
 
     public void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
 
-        if (Constants.isInternetConnected(application.getApplicationContext())) {
+        if (Constants.isInternetConnected(context)) {
             repository.signInWithPhoneAuthCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
@@ -132,7 +129,7 @@ public class SignInViewModel extends AndroidViewModel {
 
     public void postUser(User user) {
 
-        if (Constants.isInternetConnected(application.getApplicationContext())) {
+        if (Constants.isInternetConnected(context)) {
             repository.postUser(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -157,7 +154,7 @@ public class SignInViewModel extends AndroidViewModel {
 
     public void getUser() {
 
-        if (Constants.isInternetConnected(application.getApplicationContext())) {
+        if (Constants.isInternetConnected(context)) {
 
             repository.getUser().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override

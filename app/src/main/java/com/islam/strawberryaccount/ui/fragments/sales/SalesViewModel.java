@@ -1,6 +1,7 @@
 package com.islam.strawberryaccount.ui.fragments.sales;
 
 import android.app.Application;
+import android.content.Context;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,15 @@ import androidx.lifecycle.MutableLiveData;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Package;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.CompletableObserver;
 import io.reactivex.MaybeObserver;
 import io.reactivex.Observer;
@@ -23,22 +29,21 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SalesViewModel extends AndroidViewModel {
+@HiltViewModel
+public class SalesViewModel extends BaseViewModel {
 
-    private MutableLiveData<List<Package>> packagesLiveData;
-    private SingleLiveData<Void> insertPackageLiveData;
-    private SingleLiveData<Void> updatePackageLiveData;
-    private SingleLiveData<Void> deletePackageLiveData;
-    private SingleLiveData<String> errorLiveDate;
+    private final MutableLiveData<List<Package>> packagesLiveData;
+    private final SingleLiveData<Void> insertPackageLiveData;
+    private final SingleLiveData<Void> updatePackageLiveData;
+    private final SingleLiveData<Void> deletePackageLiveData;
+    private final SingleLiveData<String> errorLiveDate;
 
-    private Repository repository;
-    private Application application;
     private boolean isPackagesDataRequested;
 
-    public SalesViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public SalesViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
+
         isPackagesDataRequested = false;
 
         packagesLiveData = new MutableLiveData<>();
@@ -69,7 +74,7 @@ public class SalesViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveDate.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveDate.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -89,6 +94,7 @@ public class SalesViewModel extends AndroidViewModel {
                     @Override
                     public void onSubscribe(@io.reactivex.annotations.NonNull Disposable d) {
                     }
+
                     @Override
                     public void onComplete() {
                         insertPackageLiveData.setValue(null);
@@ -96,7 +102,7 @@ public class SalesViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveDate.setValue(application.getApplicationContext().getString(R.string.error_add));
+                        errorLiveDate.setValue(context.getString(R.string.error_add));
                     }
                 });
     }
@@ -118,7 +124,7 @@ public class SalesViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveDate.setValue(application.getApplicationContext().getString(R.string.error_update));
+                        errorLiveDate.setValue(context.getString(R.string.error_update));
                     }
                 });
     }
@@ -140,7 +146,7 @@ public class SalesViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveDate.setValue(application.getApplicationContext().getString(R.string.error_delete));
+                        errorLiveDate.setValue(context.getString(R.string.error_delete));
                     }
                 });
     }

@@ -1,35 +1,38 @@
 package com.islam.strawberryaccount.ui.fragments.trader;
 
 import android.app.Application;
+import android.content.Context;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Trader;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class TraderViewModel extends AndroidViewModel {
+@HiltViewModel
+public class TraderViewModel extends BaseViewModel {
 
-    private MutableLiveData<Trader> traderLiveData;
-    private SingleLiveData<String> errorLiveData;
+    private final MutableLiveData<Trader> traderLiveData;
+    private final SingleLiveData<String> errorLiveData;
 
-    private Repository repository;
-    private Application application;
     private boolean isTraderDataRequested;
 
-    public TraderViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public TraderViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
+
         isTraderDataRequested = false;
 
         traderLiveData = new MutableLiveData<>();
@@ -56,7 +59,7 @@ public class TraderViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override

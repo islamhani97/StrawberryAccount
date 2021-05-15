@@ -1,42 +1,44 @@
 package com.islam.strawberryaccount.ui.fragments.financial;
 
 import android.app.Application;
+import android.content.Context;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Cash;
-import com.islam.strawberryaccount.pojo.Package;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FinancialViewModel extends AndroidViewModel {
+@HiltViewModel
+public class FinancialViewModel extends BaseViewModel {
 
-    private MutableLiveData<List<Cash>> cashesLiveData;
-    private SingleLiveData<Void> insertCashLiveData;
-    private SingleLiveData<Void> updateCashLiveData;
-    private SingleLiveData<Void> deleteCashLiveData;
-    private SingleLiveData<String> errorLiveData;
+    private final MutableLiveData<List<Cash>> cashesLiveData;
+    private final SingleLiveData<Void> insertCashLiveData;
+    private final SingleLiveData<Void> updateCashLiveData;
+    private final SingleLiveData<Void> deleteCashLiveData;
+    private final SingleLiveData<String> errorLiveData;
 
-    private Repository repository;
-    private Application application;
     private boolean isCashesDataRequested;
 
-    public FinancialViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+    @Inject
+    public FinancialViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
+
         isCashesDataRequested = false;
 
         cashesLiveData = new MutableLiveData<>();
@@ -66,7 +68,7 @@ public class FinancialViewModel extends AndroidViewModel {
 
                         @Override
                         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                            errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_data));
+                            errorLiveData.setValue(context.getString(R.string.error_data));
                         }
 
                         @Override
@@ -96,7 +98,7 @@ public class FinancialViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_add));
+                        errorLiveData.setValue(context.getString(R.string.error_add));
                     }
                 });
     }
@@ -119,7 +121,7 @@ public class FinancialViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_update));
+                        errorLiveData.setValue(context.getString(R.string.error_update));
                     }
                 });
     }
@@ -142,7 +144,7 @@ public class FinancialViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
-                        errorLiveData.setValue(application.getApplicationContext().getString(R.string.error_delete));
+                        errorLiveData.setValue(context.getString(R.string.error_delete));
                     }
                 });
     }

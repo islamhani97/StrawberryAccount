@@ -1,6 +1,7 @@
 package com.islam.strawberryaccount.ui.activities.splash;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -14,25 +15,29 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.islam.strawberryaccount.data.Repository;
 import com.islam.strawberryaccount.pojo.Version;
+import com.islam.strawberryaccount.ui.BaseViewModel;
 import com.islam.strawberryaccount.utils.Constants;
 import com.islam.strawberryaccount.utils.SingleLiveData;
 
+import javax.inject.Inject;
 
-public class SplashViewModel extends AndroidViewModel {
+import dagger.hilt.android.lifecycle.HiltViewModel;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 
-    private MutableLiveData<FirebaseUser> currentUserLiveData;
-    private MutableLiveData<Boolean> signInStatusLiveData;
-    private MutableLiveData<String> languageLiveData;
-    private MutableLiveData<Version> versionLiveData;
-    private SingleLiveData<Integer> errorLiveData;
+@HiltViewModel
+public class SplashViewModel extends BaseViewModel {
 
-    private Application application;
-    private Repository repository;
+    private final MutableLiveData<FirebaseUser> currentUserLiveData;
+    private final MutableLiveData<Boolean> signInStatusLiveData;
+    private final MutableLiveData<String> languageLiveData;
+    private final MutableLiveData<Version> versionLiveData;
+    private final SingleLiveData<Integer> errorLiveData;
 
-    public SplashViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
-        repository = ((com.islam.strawberryaccount.utils.Application) application).getRepository();
+
+
+    @Inject
+    public SplashViewModel(@ApplicationContext Context context , Repository repository) {
+        super(context,repository);
 
         currentUserLiveData = new MutableLiveData<>();
         signInStatusLiveData = new MutableLiveData<>();
@@ -65,7 +70,7 @@ public class SplashViewModel extends AndroidViewModel {
 
     public void getLastVersion() {
 
-        if (Constants.isInternetConnected(application.getApplicationContext())) {
+        if (Constants.isInternetConnected(context)) {
 
             repository.getLastVersion().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override

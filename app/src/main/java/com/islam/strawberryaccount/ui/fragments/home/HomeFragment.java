@@ -27,8 +27,11 @@ import com.islam.strawberryaccount.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
 
+@AndroidEntryPoint
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;

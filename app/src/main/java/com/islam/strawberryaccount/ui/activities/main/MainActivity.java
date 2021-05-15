@@ -25,7 +25,9 @@ import com.islam.strawberryaccount.databinding.ActivityMainBinding;
 import com.islam.strawberryaccount.pojo.User;
 import com.islam.strawberryaccount.utils.Constants;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity implements SettingsCallback {
 
     private ActivityMainBinding binding;

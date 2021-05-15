@@ -16,16 +16,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.islam.strawberryaccount.ui.activities.main.MainActivity;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.SignInNavGraphDirections;
 import com.islam.strawberryaccount.callbacks.SignInCallback;
 import com.islam.strawberryaccount.databinding.ActivitySignInBinding;
 import com.islam.strawberryaccount.pojo.User;
+import com.islam.strawberryaccount.ui.activities.main.MainActivity;
 import com.islam.strawberryaccount.ui.dialogs.LoadingDialog;
 import com.islam.strawberryaccount.utils.Constants;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SignInActivity extends AppCompatActivity implements SignInCallback {
 
     private ActivitySignInBinding binding;
