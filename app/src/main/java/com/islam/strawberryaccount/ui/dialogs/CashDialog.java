@@ -2,8 +2,6 @@ package com.islam.strawberryaccount.ui.dialogs;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -30,7 +28,7 @@ public abstract class CashDialog {
     private Calendar calendar;
 
 
-    public CashDialog(Context context, Cash cash,String actionText,String language) {
+    public CashDialog(Context context, Cash cash, String actionText, String language) {
         this.context = context;
         calendar = Calendar.getInstance();
         initDialog();
@@ -44,7 +42,7 @@ public abstract class CashDialog {
         if (cash.getDate() == null) {
             cash.setDate(calendar.getTime());
         }
-        binding.dialogCashDate.getEditText().setText(Constants.showDate(cash.getDate(),language));
+        binding.dialogCashDate.getEditText().setText(Constants.showDate(cash.getDate(), language));
 
 
         binding.dialogCashDate.getEditText().setOnClickListener(new View.OnClickListener() {
@@ -63,7 +61,7 @@ public abstract class CashDialog {
                                 calendar.get(Calendar.SECOND));
 
                         cash.setDate(setCalendar.getTime());
-                        binding.dialogCashDate.getEditText().setText(Constants.showDate(cash.getDate(),language));
+                        binding.dialogCashDate.getEditText().setText(Constants.showDate(cash.getDate(), language));
 
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
@@ -95,7 +93,7 @@ public abstract class CashDialog {
 
     private void initDialog() {
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_cash, null, false);
-        alertDialog = new MaterialAlertDialogBuilder(context,R.style.DialogTheme)
+        alertDialog = new MaterialAlertDialogBuilder(context, R.style.DialogTheme)
                 .setView(binding.getRoot())
                 .setCancelable(false)
                 .setBackground(context.getDrawable(R.drawable.shape_dialog_background))

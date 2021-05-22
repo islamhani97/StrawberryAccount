@@ -1,6 +1,5 @@
 package com.islam.strawberryaccount.ui.fragments.financial;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;

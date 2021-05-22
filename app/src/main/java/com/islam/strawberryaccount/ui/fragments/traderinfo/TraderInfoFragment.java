@@ -2,6 +2,12 @@ package com.islam.strawberryaccount.ui.fragments.traderinfo;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,13 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.islam.strawberryaccount.R;
@@ -98,7 +97,7 @@ public class TraderInfoFragment extends Fragment {
             public void onClick(View v) {
 
                 if (trader != null) {
-                    new TraderDialog(getContext(), trader,getString(R.string.update)) {
+                    new TraderDialog(getContext(), trader, getString(R.string.update)) {
                         @Override
                         public void onSave(Trader trader) {
                             traderInfoViewModel.updateTrader(trader);
@@ -136,7 +135,7 @@ public class TraderInfoFragment extends Fragment {
             @Override
             public void onChanged(Trader trader) {
                 TraderInfoFragment.this.trader = trader;
-                binding.fragmentTraderInfoTraderName.setText(getString(R.string.trader_name)+":  "+trader.getName());
+                binding.fragmentTraderInfoTraderName.setText(getString(R.string.trader_name) + ":  " + trader.getName());
 
             }
         });
@@ -196,11 +195,10 @@ public class TraderInfoFragment extends Fragment {
         }
 
 
-
-        binding.fragmentTraderInfoTotalAmount.setText(Constants.suffixText(totalAmount.toString(),getString(R.string.box)));
-        binding.fragmentTraderInfoTotalProfit.setText(Constants.suffixText(totalProfit.toString(),getString(R.string.le)));
+        binding.fragmentTraderInfoTotalAmount.setText(Constants.suffixText(totalAmount.toString(), getString(R.string.box)));
+        binding.fragmentTraderInfoTotalProfit.setText(Constants.suffixText(totalProfit.toString(), getString(R.string.le)));
         double owed = totalProfit - totalPaid;
-        binding.fragmentTraderInfoTotalOwed.setText(Constants.suffixText(String.valueOf(owed),getString(R.string.le)));
+        binding.fragmentTraderInfoTotalOwed.setText(Constants.suffixText(String.valueOf(owed), getString(R.string.le)));
 
     }
 
@@ -215,13 +213,11 @@ public class TraderInfoFragment extends Fragment {
 
         }
 
-        binding.fragmentTraderInfoTotalPaid.setText(Constants.suffixText(totalPaid.toString(),getString(R.string.le)));
+        binding.fragmentTraderInfoTotalPaid.setText(Constants.suffixText(totalPaid.toString(), getString(R.string.le)));
         double owed = totalProfit - totalPaid;
-        binding.fragmentTraderInfoTotalOwed.setText(Constants.suffixText(String.valueOf(owed),getString(R.string.le)));
+        binding.fragmentTraderInfoTotalOwed.setText(Constants.suffixText(String.valueOf(owed), getString(R.string.le)));
 
     }
-
-
 
 
     private void configAction() {

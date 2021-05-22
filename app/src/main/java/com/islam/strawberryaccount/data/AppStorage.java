@@ -20,21 +20,6 @@ public class AppStorage {
         this.gson = gson;
     }
 
-//    public void setUser(User user) {
-//        sharedPreferences.edit().putString(Constants.SH_PREFS_USER, gson.toJson(user)).apply();
-//    }
-//
-//    public User getUser() {
-//        String user = sharedPreferences.getString(Constants.SH_PREFS_USER, Constants.NONE);
-//        if (!user.equals(Constants.NONE)) {
-//            return gson.fromJson(user, User.class);
-//        } else {
-//            return null;
-//        }
-//
-//    }
-
-
     public void setLanguage(String language) {
         sharedPreferences.edit().putString(Constants.SH_PREFS_LANGUAGE, language).apply();
     }

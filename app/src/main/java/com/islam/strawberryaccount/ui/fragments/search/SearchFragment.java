@@ -1,9 +1,13 @@
 package com.islam.strawberryaccount.ui.fragments.search;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,14 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.adapters.CashesAdapter;
@@ -53,7 +49,7 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
 
     private Package updatePackage;
     private Cash updateCash;
-    private String language ;
+    private String language;
 
 
     @Override
@@ -63,8 +59,8 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
         traderId = SearchFragmentArgs.fromBundle(getArguments()).getTraderId();
 
         language = getResources().getConfiguration().locale.getLanguage();
-        packagesAdapter = new PackagesAdapter(this,language);
-        cashesAdapter = new CashesAdapter(this,language);
+        packagesAdapter = new PackagesAdapter(this, language);
+        cashesAdapter = new CashesAdapter(this, language);
 
     }
 
@@ -114,7 +110,7 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
             @Override
             public void onClick(View v) {
                 if (!isErrorExist()) {
-                  search();
+                    search();
                 }
             }
         });
@@ -135,7 +131,7 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
     private void showData() {
 
         if (searchViewModel.getStartSearchDate() != null) {
-            binding.fragmentSearchDate.getEditText().setText(Constants.showDate(new Date(searchViewModel.getStartSearchDate()),language));
+            binding.fragmentSearchDate.getEditText().setText(Constants.showDate(new Date(searchViewModel.getStartSearchDate()), language));
         }
         if (searchViewModel.getSearchType() != null) {
             binding.fragmentSearchTypeGroup.setOnCheckedChangeListener(null);
@@ -181,10 +177,9 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
             public void onChanged(List<Package> packages) {
                 if (searchViewModel.getSearchType().equals(Constants.SEARCH_TYPE_SALES)) {
 
-                    if(packages.size()  < 1 ){
+                    if (packages.size() < 1) {
                         binding.fragmentSearchNorResultLabel.setVisibility(View.VISIBLE);
-                    }
-                    else{
+                    } else {
                         binding.fragmentSearchNorResultLabel.setVisibility(View.GONE);
                     }
 
@@ -201,10 +196,9 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
             public void onChanged(List<Cash> cashList) {
                 if (searchViewModel.getSearchType().equals(Constants.SEARCH_TYPE_FINANCIAL)) {
 
-                    if(cashList.size()  < 1 ){
+                    if (cashList.size() < 1) {
                         binding.fragmentSearchNorResultLabel.setVisibility(View.VISIBLE);
-                    }
-                    else{
+                    } else {
                         binding.fragmentSearchNorResultLabel.setVisibility(View.GONE);
                     }
 
@@ -247,7 +241,6 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
         });
 
 
-
         searchViewModel.getErrorLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
@@ -279,11 +272,11 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
 
     @Override
     public void onPackageClicked(Package aPackage) {
-        new ShowPackageDialog(getContext(), aPackage,language) {
+        new ShowPackageDialog(getContext(), aPackage, language) {
             @Override
             public void onEdit(Package aPackage) {
                 updatePackage = aPackage.getInstance();
-                new PackageDialog(getContext(), updatePackage,getString(R.string.update),language) {
+                new PackageDialog(getContext(), updatePackage, getString(R.string.update), language) {
                     @Override
                     public void onSave(Package aPackage) {
                         searchViewModel.updatePackage(aPackage);
@@ -303,12 +296,12 @@ public class SearchFragment extends Fragment implements PackagesAdapterCallback,
 
     @Override
     public void onCashClicked(Cash cash) {
-        new ShowCashDialog(getContext(), cash,language) {
+        new ShowCashDialog(getContext(), cash, language) {
             @Override
             public void onEdit(Cash cash) {
                 updateCash = cash.getInstance();
 
-                new CashDialog(getContext(), updateCash,getString(R.string.update),language) {
+                new CashDialog(getContext(), updateCash, getString(R.string.update), language) {
                     @Override
                     public void onSave(Cash cash) {
                         searchViewModel.updateCash(cash);

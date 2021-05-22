@@ -1,7 +1,5 @@
 package com.islam.strawberryaccount.utils;
 
-import android.nfc.Tag;
-
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
@@ -29,7 +27,6 @@ public class SingleLiveData<T> {
         pending.set(true);
         liveData.setValue(t);
     }
-
 
 
 }

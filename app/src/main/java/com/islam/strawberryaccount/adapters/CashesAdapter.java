@@ -10,13 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.callbacks.CashesAdapterCallback;
-import com.islam.strawberryaccount.callbacks.TradersAdapterCallback;
 import com.islam.strawberryaccount.databinding.ItemCashBinding;
-import com.islam.strawberryaccount.databinding.ItemTraderBinding;
 import com.islam.strawberryaccount.pojo.Cash;
-import com.islam.strawberryaccount.pojo.Trader;
 import com.islam.strawberryaccount.utils.Constants;
-import com.islam.strawberryaccount.utils.DateConverter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,12 +22,12 @@ public class CashesAdapter extends RecyclerView.Adapter<CashesAdapter.ItemCashHo
 
     private List<Cash> cashList;
     private CashesAdapterCallback cashesAdapterCallback;
-    private String language ;
+    private String language;
 
-    public CashesAdapter(CashesAdapterCallback cashesAdapterCallback,String language) {
+    public CashesAdapter(CashesAdapterCallback cashesAdapterCallback, String language) {
         cashList = new ArrayList<>();
         this.cashesAdapterCallback = cashesAdapterCallback;
-        this.language = language ;
+        this.language = language;
     }
 
     @NonNull
@@ -54,7 +50,7 @@ public class CashesAdapter extends RecyclerView.Adapter<CashesAdapter.ItemCashHo
 
     public void updateDataSet(List<Cash> cashList) {
         this.cashList = cashList;
-        Collections.sort( this.cashList , Constants.CASH_COMPARATOR);
+        Collections.sort(this.cashList, Constants.CASH_COMPARATOR);
         notifyDataSetChanged();
     }
 

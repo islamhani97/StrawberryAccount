@@ -12,11 +12,11 @@
         <item name="colorSecondaryVariant">@color/theme_color_4</item>
         <item name="colorOnSecondary">@color/white</item>
         <!--Surface-->
-        <item name="colorSurface">@color/white</item>
-        <item name="colorOnSurface">@color/theme_color_2</item>
+        <item name="colorSurface">@color/theme_color_2</item>
+        <item name="colorOnSurface">@color/white</item>
         <!--Background-->
-        <item name="android:colorBackground">@color/white</item>
-        <item name="colorOnBackground">@color/theme_color_2</item>
+        <item name="android:colorBackground">@color/theme_color_2</item>
+        <item name="colorOnBackground">@color/white</item>
 
         <item name="fontFamily">@font/cairo_semi_bold</item>
     </style>
@@ -50,9 +50,9 @@
     </style>
 
     <style name="VerificationCodeEditTextStyle">
-        <item name="digitTextColor">@color/theme_color_3</item>
-        <item name="digitPlaceholderColor">@color/theme_color_2</item>
-        <item name="digitStrokeColor">@color/theme_color_2</item>
+       <item name="digitTextColor">@color/theme_color_3</item>
+        <item name="digitPlaceholderColor">@color/white</item>
+        <item name="digitStrokeColor">@color/white</item>
         <item name="digitFilledStrokeColor">@color/theme_color_3</item>
     </style>
 </resources>

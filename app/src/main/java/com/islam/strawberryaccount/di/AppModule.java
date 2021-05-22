@@ -38,7 +38,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public Dao provideDao(@ApplicationContext Context context){
+    public Dao provideDao(@ApplicationContext Context context) {
         return Database.getInstance(context).dao();
     }
 

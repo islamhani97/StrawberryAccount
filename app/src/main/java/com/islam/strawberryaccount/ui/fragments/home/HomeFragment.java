@@ -1,10 +1,6 @@
 package com.islam.strawberryaccount.ui.fragments.home;
 
 import android.os.Bundle;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +17,12 @@ import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.databinding.FragmentHomeBinding;
 import com.islam.strawberryaccount.pojo.Cash;
 import com.islam.strawberryaccount.pojo.Package;
-import com.islam.strawberryaccount.ui.fragments.traderinfo.TraderInfoFragment;
 import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
-
-import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
 
 @AndroidEntryPoint
 public class HomeFragment extends Fragment {
@@ -109,14 +102,12 @@ public class HomeFragment extends Fragment {
 
             totalAmount += aPackage.getAmount();
             totalProfit += (aPackage.getAmount() * aPackage.getPrice());
-
         }
 
-
-        binding.fragmentHomeTotalAmount.setText(Constants.suffixText(totalAmount.toString(),getString(R.string.box)));
-        binding.fragmentHomeTotalProfit.setText(Constants.suffixText(totalProfit.toString(),getString(R.string.le)));
+        binding.fragmentHomeTotalAmount.setText(Constants.suffixText(totalAmount.toString(), getString(R.string.box)));
+        binding.fragmentHomeTotalProfit.setText(Constants.suffixText(totalProfit.toString(), getString(R.string.le)));
         double owed = totalProfit - totalPaid;
-        binding.fragmentHomeTotalOwed.setText(Constants.suffixText(String.valueOf(owed),getString(R.string.le)));
+        binding.fragmentHomeTotalOwed.setText(Constants.suffixText(String.valueOf(owed), getString(R.string.le)));
 
     }
 
@@ -127,13 +118,11 @@ public class HomeFragment extends Fragment {
         for (Cash cash : cashList) {
 
             totalPaid += cash.getValue();
-
-
         }
 
-        binding.fragmentHomeTotalPaid.setText(Constants.suffixText(totalPaid.toString(),getString(R.string.le)));
+        binding.fragmentHomeTotalPaid.setText(Constants.suffixText(totalPaid.toString(), getString(R.string.le)));
         double owed = totalProfit - totalPaid;
-        binding.fragmentHomeTotalOwed.setText(Constants.suffixText(String.valueOf(owed),getString(R.string.le)));
+        binding.fragmentHomeTotalOwed.setText(Constants.suffixText(String.valueOf(owed), getString(R.string.le)));
 
     }
 }

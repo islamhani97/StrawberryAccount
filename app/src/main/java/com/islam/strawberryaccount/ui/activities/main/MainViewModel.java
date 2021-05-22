@@ -1,12 +1,10 @@
 package com.islam.strawberryaccount.ui.activities.main;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,7 +30,7 @@ public class MainViewModel extends BaseViewModel {
 
     @Inject
     public MainViewModel(@ApplicationContext Context context, Repository repository) {
-        super(context,repository);
+        super(context, repository);
         userLiveData = new MutableLiveData<>();
         errorLiveData = new SingleLiveData<>();
     }

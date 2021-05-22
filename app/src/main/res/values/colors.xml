@@ -2,35 +2,21 @@
 <resources>
 
 
-    <!--Primary-->
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00695C</color>
-    <color name="colorPrimaryVariant">#00695C</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-    <!--Secondary-->
-    <color name="colorSecondary">#00B8D4</color>
-    <color name="colorSecondaryVariant">#0288D1</color>
-    <color name="colorOnSecondary">#FFFFFF</color>
-    <!--Surface-->
-    <color name="colorSurface">#FFFFFF</color>
-    <color name="colorOnSurface">#000000</color>
-    <!--Background-->
-    <color name="colorBackground">#FFFFFF</color>
-    <color name="colorOnBackground">#000000</color>
-    <!--Error-->
-    <color name="colorError">#B00020</color>
-    <color name="colorOnError">#FFFFFF</color>
+    <color name="theme_color_1">#3D5A80</color>
+    <color name="theme_color_2">#293241</color>
+    <color name="theme_color_3">#EE6C4D</color>
+    <color name="theme_color_4">#F4A261</color>
+    <color name="white">#FFFFFF</color>
+
 
     <color name="edit_color">#2196F3</color>
     <color name="delete_color">#B31717</color>
 
     <!--    Ripple effect like 20% of secondary-->
-    <color name="ripple_effect_color">#3300B8D4</color>
+    <color name="ripple_effect_color">#33EE6C4D</color>
 
     <!--    launcher-->
     <color name="ic_launcher_background">#FAFAFA</color>
 
 </resources>
 
-    <!--<color name="colorSecondary">#00B0FF</color>-->
-    <!--<color name="colorSecondary">#0288D1</color>-->

@@ -1,6 +1,10 @@
 package com.islam.strawberryaccount.ui.fragments.trader;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,13 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
-import com.ToxicBakery.viewpager.transforms.ZoomInTransformer;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.islam.strawberryaccount.R;
@@ -74,17 +71,17 @@ public class TraderFragment extends Fragment {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
 
-                switch (position){
+                switch (position) {
 
-                    case 0:{
+                    case 0: {
                         tab.setText(R.string.trader_info);
                         break;
                     }
-                    case 1:{
+                    case 1: {
                         tab.setText(R.string.sales);
                         break;
                     }
-                    case 2:{
+                    case 2: {
                         tab.setText(R.string.financial);
                         break;
                     }
@@ -104,7 +101,7 @@ public class TraderFragment extends Fragment {
 
             }
         });
-}
+    }
 
 
     private void observeOnDAta() {

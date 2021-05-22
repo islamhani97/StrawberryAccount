@@ -1,7 +1,10 @@
 package com.islam.strawberryaccount.ui.fragments.listtraders;
 
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,20 +15,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.adapters.TradersAdapter;
 import com.islam.strawberryaccount.callbacks.TradersAdapterCallback;
 import com.islam.strawberryaccount.databinding.FragmentTradersListBinding;
 import com.islam.strawberryaccount.pojo.Trader;
-import com.islam.strawberryaccount.ui.dialogs.LoadingDialog;
 import com.islam.strawberryaccount.ui.dialogs.TraderDialog;
 import com.islam.strawberryaccount.utils.Constants;
 
@@ -68,7 +63,7 @@ public class TradersListFragment extends Fragment implements TradersAdapterCallb
         binding.fragmentTradersListAddTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new TraderDialog(getContext(), new Trader(),getString(R.string.save)) {
+                new TraderDialog(getContext(), new Trader(), getString(R.string.save)) {
                     @Override
                     public void onSave(Trader trader) {
                         tradersListViewModel.insertTrader(trader);
@@ -85,7 +80,7 @@ public class TradersListFragment extends Fragment implements TradersAdapterCallb
         tradersListViewModel.getTradersListLiveData().observe(getViewLifecycleOwner(), new Observer<List<Trader>>() {
             @Override
             public void onChanged(List<Trader> traders) {
-                if (traders.size()  < 1) {
+                if (traders.size() < 1) {
                     binding.fragmentTradersListEmptyLabel.setVisibility(View.VISIBLE);
                 } else {
                     binding.fragmentTradersListEmptyLabel.setVisibility(View.GONE);

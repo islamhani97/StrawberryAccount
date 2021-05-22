@@ -1,5 +1,11 @@
 package com.islam.strawberryaccount.ui.activities.main;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +17,6 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.islam.strawberryaccount.R;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements SettingsCallback 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.mainNavigationDrawer, navController);
 
-        if(showAbout){
+        if (showAbout) {
             navController.navigate(R.id.aboutFragment);
         }
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements SettingsCallback 
             @Override
             public void onChanged(Integer errorCode) {
 
-                switch (errorCode){
+                switch (errorCode) {
                     case Constants.ERROR_CODE_USER_NO_INTERNET: {
                         showDialog(R.string.error_no_internet,
                                 R.string.retry,

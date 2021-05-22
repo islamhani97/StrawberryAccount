@@ -57,6 +57,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+    // VerificationCodeEditText
+    implementation 'com.github.islamhani97:VerificationCodeEditText:1.0.0'
+
     // Gson
     implementation 'com.google.code.gson:gson:2.8.6'
 

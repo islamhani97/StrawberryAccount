@@ -1,7 +1,7 @@
 package com.islam.strawberryaccount.pojo;
 
 public class Total {
-    private Double totalValue ;
+    private Double totalValue;
 
     public Double getTotalValue() {
         return totalValue;

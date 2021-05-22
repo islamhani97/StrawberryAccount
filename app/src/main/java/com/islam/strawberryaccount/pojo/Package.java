@@ -20,8 +20,6 @@ import java.util.Date;
 public class Package {
 
 
-
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private Long id;
@@ -90,7 +88,6 @@ public class Package {
     public void setDate(Date date) {
         this.date = date;
     }
-
 
 
     @Ignore

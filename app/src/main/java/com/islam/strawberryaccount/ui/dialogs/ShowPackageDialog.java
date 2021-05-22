@@ -24,7 +24,7 @@ public abstract class ShowPackageDialog {
     private Animation rotateOpenAnim, rotateCloseAnim, showingAnim, hidingAnim;
     private boolean active;
 
-    public ShowPackageDialog(Context context, Package aPackage,String language) {
+    public ShowPackageDialog(Context context, Package aPackage, String language) {
         this.context = context;
         initDialog();
         binding.setLanguage(language);

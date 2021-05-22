@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.callbacks.SignInCallback;
 import com.islam.strawberryaccount.databinding.FragmentAuthCodeBinding;
-import com.islam.strawberryaccount.views.VerificationCodeEditText;
+import com.islam.verificationcodeedittext.VerificationCodeEditText;
 
 
 public class AuthCodeFragment extends Fragment {

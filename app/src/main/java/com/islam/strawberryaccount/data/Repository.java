@@ -1,12 +1,6 @@
 package com.islam.strawberryaccount.data;
 
 import android.app.Activity;
-import android.content.Context;
-
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Query;
-import androidx.room.Update;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,7 +12,6 @@ import com.islam.strawberryaccount.pojo.Cash;
 import com.islam.strawberryaccount.pojo.Package;
 import com.islam.strawberryaccount.pojo.Trader;
 import com.islam.strawberryaccount.pojo.User;
-import com.islam.strawberryaccount.utils.Constants;
 
 import java.util.List;
 
@@ -26,7 +19,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 

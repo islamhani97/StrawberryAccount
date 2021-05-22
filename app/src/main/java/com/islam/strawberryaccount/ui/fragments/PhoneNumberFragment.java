@@ -42,7 +42,7 @@ public class PhoneNumberFragment extends Fragment {
                 } else if (!phoneNumber.matches(Constants.PHONE_PATTERN)) {
                     binding.fragmentPhoneNumberPhoneNumber.setError(getString(R.string.error_phone_number));
                 } else {
-                    signInCallback.verifyPhoneNumber("+2"+phoneNumber);
+                    signInCallback.verifyPhoneNumber("+2" + phoneNumber);
                 }
             }
         });

@@ -2,9 +2,9 @@ package com.islam.strawberryaccount.pojo;
 
 public class User {
 
-    private String id ;
-    private String name ;
-    private String phone ;
+    private String id;
+    private String name;
+    private String phone;
 
     public String getId() {
         return id;

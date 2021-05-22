@@ -10,13 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.callbacks.PackagesAdapterCallback;
-import com.islam.strawberryaccount.callbacks.TradersAdapterCallback;
 import com.islam.strawberryaccount.databinding.ItemPackageBinding;
-import com.islam.strawberryaccount.databinding.ItemTraderBinding;
 import com.islam.strawberryaccount.pojo.Package;
-import com.islam.strawberryaccount.pojo.Trader;
 import com.islam.strawberryaccount.utils.Constants;
-import com.islam.strawberryaccount.utils.DateConverter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,12 +22,12 @@ public class PackagesAdapter extends RecyclerView.Adapter<PackagesAdapter.ItemPa
 
     private List<Package> packages;
     private PackagesAdapterCallback packagesAdapterCallback;
-    private String language ;
+    private String language;
 
-    public PackagesAdapter(PackagesAdapterCallback packagesAdapterCallback,String language) {
+    public PackagesAdapter(PackagesAdapterCallback packagesAdapterCallback, String language) {
         packages = new ArrayList<>();
         this.packagesAdapterCallback = packagesAdapterCallback;
-        this.language = language ;
+        this.language = language;
     }
 
 
@@ -56,7 +52,7 @@ public class PackagesAdapter extends RecyclerView.Adapter<PackagesAdapter.ItemPa
 
     public void updateDataSet(List<Package> packages) {
         this.packages = packages;
-        Collections.sort( this.packages , Constants.PACKAGES_COMPARATOR);
+        Collections.sort(this.packages, Constants.PACKAGES_COMPARATOR);
         notifyDataSetChanged();
     }
 

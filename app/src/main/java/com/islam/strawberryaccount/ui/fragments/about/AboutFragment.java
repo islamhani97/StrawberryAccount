@@ -3,15 +3,14 @@ package com.islam.strawberryaccount.ui.fragments.about;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.databinding.FragmentAboutBinding;
@@ -35,7 +34,7 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+2"+binding.fragmentAboutPhoneNumber.getText().toString().trim()));
+                intent.setData(Uri.parse("tel:+2" + binding.fragmentAboutPhoneNumber.getText().toString().trim()));
                 startActivity(intent);
             }
         });
@@ -44,11 +43,10 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"+binding.fragmentAboutMail.getText().toString().trim()));
+                intent.setData(Uri.parse("mailto:" + binding.fragmentAboutMail.getText().toString().trim()));
                 startActivity(intent);
             }
         });
-
 
 
     }

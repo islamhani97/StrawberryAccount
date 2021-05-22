@@ -17,10 +17,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseUser;
-import com.islam.strawberryaccount.pojo.Version;
-import com.islam.strawberryaccount.ui.activities.main.MainActivity;
 import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.databinding.ActivitySplashBinding;
+import com.islam.strawberryaccount.pojo.Version;
+import com.islam.strawberryaccount.ui.activities.main.MainActivity;
 import com.islam.strawberryaccount.ui.activities.signin.SignInActivity;
 import com.islam.strawberryaccount.ui.dialogs.LoadingDialog;
 import com.islam.strawberryaccount.utils.Constants;
@@ -200,7 +200,7 @@ public class SplashActivity extends AppCompatActivity {
                                     splashViewModel.getLastVersion();
                                 }
                             });
-                }else if (errorCode.equals(Constants.ERROR_CODE_VERSION_NETWORK_CONNECTION)) {
+                } else if (errorCode.equals(Constants.ERROR_CODE_VERSION_NETWORK_CONNECTION)) {
                     showDialog(R.string.error_network_connection,
                             R.string.retry,
                             new DialogInterface.OnClickListener() {
@@ -210,7 +210,7 @@ public class SplashActivity extends AppCompatActivity {
                                     splashViewModel.getLastVersion();
                                 }
                             });
-                }else if (errorCode.equals(Constants.ERROR_CODE_VERSION_UNKNOWN)) {
+                } else if (errorCode.equals(Constants.ERROR_CODE_VERSION_UNKNOWN)) {
                     showDialog(R.string.error_unknown,
                             R.string.retry,
                             new DialogInterface.OnClickListener() {
@@ -242,7 +242,6 @@ public class SplashActivity extends AppCompatActivity {
         configuration.locale = locale;
         resources.updateConfiguration(configuration, displayMetrics);
     }
-
 
 
 }

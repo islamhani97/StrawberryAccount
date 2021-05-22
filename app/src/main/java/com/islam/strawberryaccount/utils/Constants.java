@@ -15,7 +15,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.islam.strawberryaccount.R;
 import com.islam.strawberryaccount.pojo.Cash;
 import com.islam.strawberryaccount.pojo.Package;
 
@@ -70,13 +69,11 @@ public class Constants {
     public static final int ERROR_CODE_UNKNOWN = 12;
 
 
-
-
     // Date
     private static final String DATE_FORMAT_SHOW = "EEE dd MMM yyyy";
 
-    public static String showDate(Date date,String language) {
-        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHOW,new Locale(language));
+    public static String showDate(Date date, String language) {
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHOW, new Locale(language));
         return dateFormat.format(date);
     }
 
@@ -126,10 +123,9 @@ public class Constants {
                 NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
                 return capabilities != null && (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) );
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
 
-            }
-            else {
+            } else {
                 return false;
             }
 

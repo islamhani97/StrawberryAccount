@@ -43,9 +43,9 @@ public class UserInfoFragment extends Fragment {
                     User user = new User();
                     user.setName(name);
                     signInCallback.submitUserInfo(user);
-                } else if(name.isEmpty()) {
+                } else if (name.isEmpty()) {
                     binding.fragmentUserInfoName.setError(getString(R.string.error_username_required));
-                }else{
+                } else {
                     binding.fragmentUserInfoName.setError(getString(R.string.error_name_length));
                 }
             }

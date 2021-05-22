@@ -2,7 +2,7 @@ package com.islam.strawberryaccount.pojo;
 
 public class Version {
 
-    private Long versionCode ;
+    private Long versionCode;
     private String url;
 
 

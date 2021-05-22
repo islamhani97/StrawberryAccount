@@ -1,10 +1,8 @@
 package com.islam.strawberryaccount.ui.activities.splash;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -34,10 +32,9 @@ public class SplashViewModel extends BaseViewModel {
     private final SingleLiveData<Integer> errorLiveData;
 
 
-
     @Inject
-    public SplashViewModel(@ApplicationContext Context context , Repository repository) {
-        super(context,repository);
+    public SplashViewModel(@ApplicationContext Context context, Repository repository) {
+        super(context, repository);
 
         currentUserLiveData = new MutableLiveData<>();
         signInStatusLiveData = new MutableLiveData<>();
@@ -90,9 +87,9 @@ public class SplashViewModel extends BaseViewModel {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
-                    if(e instanceof FirebaseNetworkException){
+                    if (e instanceof FirebaseNetworkException) {
                         errorLiveData.setValue(Constants.ERROR_CODE_VERSION_NETWORK_CONNECTION);
-                    }else{
+                    } else {
                         errorLiveData.setValue(Constants.ERROR_CODE_VERSION_UNKNOWN);
                     }
                 }

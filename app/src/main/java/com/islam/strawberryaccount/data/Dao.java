@@ -6,15 +6,12 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.islam.strawberryaccount.pojo.Cash;
-import com.islam.strawberryaccount.pojo.InfoObject;
 import com.islam.strawberryaccount.pojo.Package;
-import com.islam.strawberryaccount.pojo.Total;
 import com.islam.strawberryaccount.pojo.Trader;
 
 import java.util.List;
 
 import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
@@ -45,7 +42,7 @@ public interface Dao {
     Observable<List<Package>> getAllPackagesForTrader(Long traderId);
 
     @Query("SELECT * FROM package WHERE trader_id = :traderId AND date BETWEEN :startDate AND :endDate")
-    Single<List<Package>> searchInPackagesForTrader(Long traderId , Long startDate , Long endDate);
+    Single<List<Package>> searchInPackagesForTrader(Long traderId, Long startDate, Long endDate);
 
     @Insert
     Completable insertPackage(Package aPackage);
@@ -66,7 +63,7 @@ public interface Dao {
 
 
     @Query("SELECT * FROM cash WHERE trader_id = :traderId AND date BETWEEN :startDate AND :endDate")
-    Single<List<Cash>> searchInCashesForTrader(Long traderId , Long startDate , Long endDate);
+    Single<List<Cash>> searchInCashesForTrader(Long traderId, Long startDate, Long endDate);
 
     @Insert
     Completable insertCash(Cash cash);
